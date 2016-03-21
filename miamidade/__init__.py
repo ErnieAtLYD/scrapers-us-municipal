@@ -26,7 +26,8 @@ class Miamidade(Jurisdiction):
 
 
     def get_organizations(self):
-        org = Organization(name="Miami-Dade County Commission",
+        org = Organization(
+            name="Miami-Dade County Commission",
             classification="legislature")
         
         #label=human readable
@@ -47,3 +48,55 @@ class Miamidade(Jurisdiction):
                 division_id=self.division_id)
         
         yield org
+
+        # Unbelievably, the only source of committees is hard coded in a PDF:
+        # http://www.miamidade.gov/commission/library/committee-structure-member-assignments.pdf
+
+        org = Organization(
+            name="Metropolitan Services Committee",
+            classification="committee")
+        org.add_post(label="chair", role="chair")
+        org.add_post(label="vice-chair", role="vice-chair")  
+        org.add_source(
+            "www.miamidade.gov/govaction/agendas.asp?Action=Agendas&Oper=DisplayAgenda&Agenda=MSC&AgendaName=Metropolitan+Services+Committee",
+            note="web")
+        yield org
+
+        org = Organization(name="UMSA Committee", classification="committee")
+        org.add_post(label="chair", role="chair")
+        org.add_post(label="vice-chair", role="vice-chair")  
+        org.add_source("www.miamidade.gov/govaction/agendas.asp?Action=Agendas&Oper=DisplayAgenda&Agenda=UMSC&AgendaName=Unincorporated+Municipal+Service+Area+(UMSA)+Cmte",
+                       note="web")
+        yield org        
+
+        org = Organization(name="Strategic Planning and Government Operations Committee", classification="committee")
+        org.add_post(label="chair", role="chair")
+        org.add_post(label="vice-chair", role="vice-chair")  
+        org.add_source("www.miamidade.gov/govaction/agendas.asp?Action=Agendas&Oper=DisplayAgenda&Agenda=SPGO&AgendaName=Strategic+Planning+%26+Government+Operations+Cmte",
+                       note="web")
+        yield org  
+
+        org = Organization(
+            name="Trade and Tourism Committee",
+            classification="committee")
+        org.add_post(label="chair", role="chair")
+        org.add_post(label="vice-chair", role="vice-chair")  
+        org.add_source("www.miamidade.gov/govaction/agendas.asp?Action=Agendas&Oper=DisplayAgenda&Agenda=TTC&AgendaName=Trade+and+Tourism+Committee",
+                       note="web")
+        yield org  
+
+        org = Organization(
+            name="Transit and Mobility Services Committee",
+            classification="committee")
+        org.add_post(label="chair", role="chair")
+        org.add_post(label="vice-chair", role="vice-chair")  
+        org.add_source("www.miamidade.gov/govaction/agendas.asp?Action=Agendas&Oper=DisplayAgenda&Agenda=TMSC&AgendaName=Transit+and+Mobility+Services+Committee",
+                       note="web")
+        yield org  
+
+        org = Organization(name="Economic Prosperity Committee", classification="committee")
+        org.add_post(label="chair", role="chair")
+        org.add_post(label="vice-chair", role="vice-chair")  
+        org.add_source("www.miamidade.gov/govaction/agendas.asp?Action=Agendas&Oper=DisplayAgenda&Agenda=EPC&AgendaName=Economic+Prosperity+Committee",
+                       note="web")
+        yield org  

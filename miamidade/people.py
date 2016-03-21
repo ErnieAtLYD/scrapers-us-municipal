@@ -1,5 +1,7 @@
 from pupa.scrape import Scraper
 from pupa.scrape import Person
+from pupa.scrape import Organization
+
 
 import lxml.html
 class MiamidadePersonScraper(Scraper):
@@ -12,7 +14,7 @@ class MiamidadePersonScraper(Scraper):
 
     def scrape(self):
         yield from self.get_people()
-        #committees can go in here too
+        #committees can go in here too   
 
 
     def get_people(self):
